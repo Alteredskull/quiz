@@ -1,19 +1,45 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-
-  <title>Quiz</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
+<body id="body">
 
-<body>
-    <h1>Highscores</h1>
-  <script src="./script.js"></script>
+    <div class="card" style="max-width: 50%; margin: 40px auto;">
+        <div class="card-body">
+        <button type="button" class="btn btn-light" id= "highScores" style= "float:left;">High Scores</button>
+        <button id= "timer" style= "float:right;">Time Left: <span id="countdown-timer"></span></button>
+          <br>
+          <div class="score">
+            <ul id="high-score"></ul>
+          </div>
+          <form class= "show-onclick" id= "form">
+          </form>
+
+          <h3 class = "questions text-center"></h3> 
+          <br>
+          <div class= "answers"></div> 
+          <div class= "text-center" id= "startText">
+          <h1 class="card-title">Code Quiz Challenge</h1>
+          <br>
+          <br>
+          <p>Try and answer the following code related questions within the time limit.  Keep in mind that incorrect answers will penalize your score time by ten seconds.</p>
+          <br>
+          <br>
+
+          <button type="button" class="btn btn-secondary btn-lg" id= "start">Start Code Quiz</button>
+         </div>
+    </div>
+    </div>   
+
+
+
+<script src="./script.js"></script>
+
 </body>
 </html>
