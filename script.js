@@ -1,6 +1,7 @@
 $(document).ready(function(){
-
+    // my counter
     var helper = 0;
+    // my questions
     var questions = [
         {
           title: "Commonly used data types DO NOT include:",
@@ -28,16 +29,16 @@ $(document).ready(function(){
           answer: "console.log"
           },
     ]
-
+    // starting time
     var secondsLeft = (questions.length) * 15; 
-    
+    // start functionality
     $("#start").on("click", function () {
         $('#startText').remove();
         loadQandA();
         setTimer();
     });
     
-    
+    // timer
     function setTimer(){
         $("#countdown-timer").text(secondsLeft);
     var countdown = setInterval(function(){
@@ -51,7 +52,7 @@ $(document).ready(function(){
     
     
     
-    
+    // questions and answers
     function loadQandA() {
         choices = questions[helper].choices;
         var question = questions[helper].title;
@@ -80,11 +81,11 @@ $(document).ready(function(){
             }
         });
     
-    
+    //correct
     function correct(){
         resetEvent();
     }
-    
+    //failed
     function wrong(){
         resetEvent();
         timerDown();
@@ -99,7 +100,7 @@ $(document).ready(function(){
         secondsLeft = secondsLeft -= 15;
     
     }
-    
+    //clear and try to log highscores, plus i need to create a highscore panel of some sorts for the user to see
     function resetEvent(){
         $('.answers').empty();
     
@@ -112,8 +113,26 @@ $(document).ready(function(){
         var score = secondsLeft
         $("#initials").append("Your score is: " + score);
         }
+
+        $("#highScoresSubmit").click(function () {
+            
+
+            saveSettings();
+            loadSettings();
+            console.log(highScoreList);
+        });
+
+        function loadEntry() {
+            // honestly stuck trying to log or append the data inside of an array to reload and maintain a highscore of some sort
+            $("#form-control").val().trim(localStorage.initial);
+            $("#form-control").val().trim();
+        }
+        
+        function saveEntry() {
+            localStorage.initial = $("#form-control").val().trim();
+        }
     
-    
+            // Close
     function scores (){
         $('.show-onclick').empty();
         $('.show-onclick').append('<button type="button" class="btn btn-info" id= "clear" style= "float:left;">Clear High Scores</button><button type="button" class="btn btn-info" id= "restart" style= "float:right;">Restart</button>');
